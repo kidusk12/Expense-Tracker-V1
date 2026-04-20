@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<!doctype html>
+<html>
+  <head>
+    <title>Expense Tracker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: #f1f5f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: #1e293b;
+        padding: 30px;
+        border-radius: 12px;
+        width: 350px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #38bdf8;
+        color: black;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #0ea5e9;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        color: #94a3b8;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #38bdf8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="success-msg" class="success" style="display: none">
+        Expense added successfully!
+      </div>
+
+      <h2>Add Expense</h2>
+
+      <form action="/add" method="POST" onsubmit="showSuccess()">
+        <input type="number" name="amount" placeholder="Amount" required />
+
+        <select name="category">
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Bills</option>
+          <option>Other</option>
+        </select>
+
+        <input type="text" name="item" placeholder="Item" />
+
+        <button type="submit">Add</button>
+      </form>
+
+      <a href="/view">View Expenses</a>
+    </div>
+  </body>
+</html>

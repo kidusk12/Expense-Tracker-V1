@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Expenses</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #0f172a;
+        color: white;
+        padding: 20px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        border-bottom: 1px solid #334155;
+        text-align: center;
+      }
+
+      th {
+        background: #1e293b;
+      }
+
+      tr:hover {
+        background: #1e293b;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #38bdf8;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Your Expenses</h2>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Item</th>
+        <th>Date</th>
+      </tr>
+
+      {% for e in expenses %}
+      <tr>
+        <td>{{ e.id }}</td>
+        <td>{{ e.amount }}</td>
+        <td>{{ e.category }}</td>
+        <td>{{ e.item }}</td>
+        <td>{{ e.date }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <a href="/">⬅ Back</a>
+  </body>
+</html>
